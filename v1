@@ -41,5 +41,3 @@ $(document).on("change", ".js-variation-option", function(e) {
     }
     
 }
-
-</script>
