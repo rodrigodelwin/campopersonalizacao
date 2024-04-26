@@ -1,5 +1,3 @@
-<script>
-
 $(document).on("change", ".js-variation-option", function(e) {
     $this = $(this);
     var input_nome = `
@@ -42,6 +40,6 @@ $(document).on("change", ".js-variation-option", function(e) {
         $(".input_numero").remove();
     }
     
-})
+}
 
 </script>
