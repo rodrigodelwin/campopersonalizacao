@@ -1,0 +1,47 @@
+<script>
+
+$(document).on("change", ".js-variation-option", function(e) {
+    $this = $(this);
+    var input_nome = `
+                        <div class="form-group input_nome">
+                            <label class="form-label ">
+                                Nome na camisa
+                            </label>
+                            <input type="text" class=" form-control  " autocorrect="off" autocapitalize="off" name="properties[Nome na camisa]">
+                        </div>`;
+
+    var input_numero = `
+                        <div class="form-group input_numero">
+                            <label class="form-label ">
+                                Número na camisa
+                            </label>
+                            <input type="number" class=" form-control  " id="input_numero_camisa" autocorrect="off" autocapitalize="off" name="properties[Número na camisa]" ">
+                        </div>`;
+
+    var selected_variant = this.value.toLowerCase();
+
+    var $parent = $(this).closest(".js-product-variants");
+
+    if (selected_variant === 'com personalização') {
+        $parent.append(input_nome);
+        $parent.append(input_numero);
+        
+        $('#input_numero_camisa').on('input', function() {
+            if($(this).val() < 0) {
+                $(this).val($(this).val() * -1); 
+            }
+            if ($(this).val().length > 2) {
+                $(this).val($(this).val().substring(0, 2));
+            }
+            
+        });
+    }
+
+    if (selected_variant === 'sem personalização') {
+        $(".input_nome").remove();
+        $(".input_numero").remove();
+    }
+    
+})
+
+</script>
